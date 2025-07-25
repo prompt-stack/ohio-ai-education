@@ -1,0 +1,683 @@
+{
+  "metadata": {
+    "title": "Ohio Educational Service Centers (ESCs) Data",
+    "description": "Comprehensive data for Ohio's 51 Educational Service Centers including estimated counties served and district counts",
+    "last_updated": "2025-01-24",
+    "total_escs": 51,
+    "total_ohio_counties": 88,
+    "total_estimated_districts": 600,
+    "data_sources": [
+      "Ohio Counties Data.csv",
+      "Ohio Educational Service Center Association (OESCA)",
+      "Ohio Department of Education and Workforce"
+    ]
+  },
+  "statewide_summary": {
+    "total_escs": 51,
+    "total_districts_served": 600,
+    "estimated_total_educators": 95000,
+    "techcred_funding_potential": 190000000,
+    "counties_covered": 88
+  },
+  "escs": [
+    {
+      "id": 1,
+      "name": "Allen County ESC",
+      "location": "Lima, OH",
+      "counties_served": ["Allen"],
+      "estimated_districts": 8,
+      "estimated_educators": 800,
+      "techcred_potential": 1600000,
+      "region": "Northwest Ohio",
+      "website": null
+    },
+    {
+      "id": 2,
+      "name": "Ashtabula County ESC",
+      "location": "Ashtabula, OH",
+      "counties_served": ["Ashtabula"],
+      "estimated_districts": 10,
+      "estimated_educators": 900,
+      "techcred_potential": 1800000,
+      "region": "Northeast Ohio",
+      "website": null
+    },
+    {
+      "id": 3,
+      "name": "Athens-Meigs ESC",
+      "location": "Athens, OH / Pomeroy, OH",
+      "counties_served": ["Athens", "Meigs"],
+      "estimated_districts": 12,
+      "estimated_educators": 800,
+      "techcred_potential": 1600000,
+      "region": "Southeast Ohio",
+      "website": null
+    },
+    {
+      "id": 4,
+      "name": "Auglaize County ESC",
+      "location": "Wapakoneta, OH",
+      "counties_served": ["Auglaize"],
+      "estimated_districts": 6,
+      "estimated_educators": 600,
+      "techcred_potential": 1200000,
+      "region": "West Central Ohio",
+      "website": null
+    },
+    {
+      "id": 5,
+      "name": "Brown County ESC",
+      "location": "Georgetown, OH",
+      "counties_served": ["Brown"],
+      "estimated_districts": 8,
+      "estimated_educators": 500,
+      "techcred_potential": 1000000,
+      "region": "Southwest Ohio",
+      "website": null
+    },
+    {
+      "id": 6,
+      "name": "Butler County ESC",
+      "location": "Hamilton, OH",
+      "counties_served": ["Butler"],
+      "estimated_districts": 12,
+      "estimated_educators": 2500,
+      "techcred_potential": 5000000,
+      "region": "Southwest Ohio - Cincinnati Metro",
+      "website": "https://www.bcesc.org"
+    },
+    {
+      "id": 7,
+      "name": "Clark County ESC",
+      "location": "Springfield, OH",
+      "counties_served": ["Clark"],
+      "estimated_districts": 8,
+      "estimated_educators": 1200,
+      "techcred_potential": 2400000,
+      "region": "West Central Ohio",
+      "website": null
+    },
+    {
+      "id": 8,
+      "name": "Clermont County ESC",
+      "location": "Batavia, OH",
+      "counties_served": ["Clermont"],
+      "estimated_districts": 8,
+      "estimated_educators": 1500,
+      "techcred_potential": 3000000,
+      "region": "Southwest Ohio - Cincinnati Metro",
+      "website": null
+    },
+    {
+      "id": 9,
+      "name": "Columbiana County ESC",
+      "location": "Lisbon, OH",
+      "counties_served": ["Columbiana"],
+      "estimated_districts": 10,
+      "estimated_educators": 1000,
+      "techcred_potential": 2000000,
+      "region": "Northeast Ohio",
+      "website": null
+    },
+    {
+      "id": 10,
+      "name": "Darke County ESC",
+      "location": "Greenville, OH",
+      "counties_served": ["Darke"],
+      "estimated_districts": 7,
+      "estimated_educators": 600,
+      "techcred_potential": 1200000,
+      "region": "West Central Ohio",
+      "website": null
+    },
+    {
+      "id": 11,
+      "name": "East Central Ohio ESC",
+      "location": "Multiple locations",
+      "counties_served": ["Tuscarawas", "Carroll", "Harrison", "Belmont", "Guernsey"],
+      "estimated_districts": 25,
+      "estimated_educators": 1800,
+      "techcred_potential": 3600000,
+      "region": "East Central Ohio",
+      "website": "https://www.ecoesc.org"
+    },
+    {
+      "id": 12,
+      "name": "ESC of Central Ohio",
+      "location": "Multiple locations",
+      "counties_served": ["Franklin", "Delaware", "Union", "Madison"],
+      "estimated_districts": 35,
+      "estimated_educators": 8000,
+      "techcred_potential": 16000000,
+      "region": "Central Ohio - Columbus Metro",
+      "website": "https://www.escco.org"
+    },
+    {
+      "id": 13,
+      "name": "ESC of Eastern Ohio",
+      "location": "Multiple locations",
+      "counties_served": ["Mahoning", "Columbiana", "Portage", "Trumbull"],
+      "estimated_districts": 30,
+      "estimated_educators": 3500,
+      "techcred_potential": 7000000,
+      "region": "Northeast Ohio",
+      "website": "https://www.esceasternohio.org"
+    },
+    {
+      "id": 14,
+      "name": "ESC of Lake Erie West",
+      "location": "Toledo, OH",
+      "counties_served": ["Lucas", "Ottawa"],
+      "estimated_districts": 15,
+      "estimated_educators": 2800,
+      "techcred_potential": 5600000,
+      "region": "Northwest Ohio - Toledo Metro",
+      "website": null
+    },
+    {
+      "id": 15,
+      "name": "ESC of Lorain County",
+      "location": "Elyria, OH",
+      "counties_served": ["Lorain"],
+      "estimated_districts": 18,
+      "estimated_educators": 2200,
+      "techcred_potential": 4400000,
+      "region": "Northeast Ohio - Cleveland Metro",
+      "website": null
+    },
+    {
+      "id": 16,
+      "name": "ESC of Medina County",
+      "location": "Medina, OH",
+      "counties_served": ["Medina"],
+      "estimated_districts": 12,
+      "estimated_educators": 1800,
+      "techcred_potential": 3600000,
+      "region": "Northeast Ohio - Cleveland Metro",
+      "website": null
+    },
+    {
+      "id": 17,
+      "name": "ESC of Northeast Ohio",
+      "location": "Multiple locations",
+      "counties_served": ["Cuyahoga", "Summit", "Geauga"],
+      "estimated_districts": 45,
+      "estimated_educators": 8500,
+      "techcred_potential": 17000000,
+      "region": "Northeast Ohio - Cleveland Metro",
+      "website": "https://www.escneo.org"
+    },
+    {
+      "id": 18,
+      "name": "ESC of the Western Reserve",
+      "location": "Painesville, OH",
+      "counties_served": ["Lake", "Ashtabula"],
+      "estimated_districts": 15,
+      "estimated_educators": 1500,
+      "techcred_potential": 3000000,
+      "region": "Northeast Ohio",
+      "website": null
+    },
+    {
+      "id": 19,
+      "name": "Fairfield County ESC",
+      "location": "Lancaster, OH",
+      "counties_served": ["Fairfield"],
+      "estimated_districts": 12,
+      "estimated_educators": 1400,
+      "techcred_potential": 2800000,
+      "region": "Central Ohio",
+      "website": null
+    },
+    {
+      "id": 20,
+      "name": "Gallia-Vinton ESC",
+      "location": "Gallipolis, OH",
+      "counties_served": ["Gallia", "Vinton"],
+      "estimated_districts": 8,
+      "estimated_educators": 500,
+      "techcred_potential": 1000000,
+      "region": "Southeast Ohio",
+      "website": null
+    },
+    {
+      "id": 21,
+      "name": "Greene County ESC",
+      "location": "Yellow Springs, OH",
+      "counties_served": ["Greene"],
+      "estimated_districts": 8,
+      "estimated_educators": 1200,
+      "techcred_potential": 2400000,
+      "region": "Southwest Ohio - Dayton Metro",
+      "website": null
+    },
+    {
+      "id": 22,
+      "name": "Hamilton County ESC",
+      "location": "Cincinnati, OH",
+      "counties_served": ["Hamilton"],
+      "estimated_districts": 22,
+      "estimated_educators": 5500,
+      "techcred_potential": 11000000,
+      "region": "Southwest Ohio - Cincinnati Metro",
+      "website": null
+    },
+    {
+      "id": 23,
+      "name": "Hancock County ESC",
+      "location": "Findlay, OH",
+      "counties_served": ["Hancock"],
+      "estimated_districts": 8,
+      "estimated_educators": 1000,
+      "techcred_potential": 2000000,
+      "region": "Northwest Ohio",
+      "website": null
+    },
+    {
+      "id": 24,
+      "name": "Jefferson County ESC",
+      "location": "Steubenville, OH",
+      "counties_served": ["Jefferson"],
+      "estimated_districts": 8,
+      "estimated_educators": 700,
+      "techcred_potential": 1400000,
+      "region": "East Central Ohio",
+      "website": null
+    },
+    {
+      "id": 25,
+      "name": "Knox ESC",
+      "location": "Mount Vernon, OH",
+      "counties_served": ["Knox"],
+      "estimated_districts": 6,
+      "estimated_educators": 600,
+      "techcred_potential": 1200000,
+      "region": "Central Ohio",
+      "website": null
+    },
+    {
+      "id": 26,
+      "name": "Lawrence County ESC",
+      "location": "Ironton, OH",
+      "counties_served": ["Lawrence"],
+      "estimated_districts": 6,
+      "estimated_educators": 500,
+      "techcred_potential": 1000000,
+      "region": "Southeast Ohio",
+      "website": null
+    },
+    {
+      "id": 27,
+      "name": "Licking Regional ESC",
+      "location": "Newark, OH",
+      "counties_served": ["Licking"],
+      "estimated_districts": 12,
+      "estimated_educators": 1600,
+      "techcred_potential": 3200000,
+      "region": "Central Ohio",
+      "website": null
+    },
+    {
+      "id": 28,
+      "name": "Madison Champaign ESC",
+      "location": "London, OH",
+      "counties_served": ["Madison", "Champaign"],
+      "estimated_districts": 10,
+      "estimated_educators": 800,
+      "techcred_potential": 1600000,
+      "region": "West Central Ohio",
+      "website": null
+    },
+    {
+      "id": 29,
+      "name": "Mercer County ESC",
+      "location": "Celina, OH",
+      "counties_served": ["Mercer"],
+      "estimated_districts": 6,
+      "estimated_educators": 500,
+      "techcred_potential": 1000000,
+      "region": "West Central Ohio",
+      "website": null
+    },
+    {
+      "id": 30,
+      "name": "Miami County ESC",
+      "location": "Troy, OH",
+      "counties_served": ["Miami"],
+      "estimated_districts": 8,
+      "estimated_educators": 1000,
+      "techcred_potential": 2000000,
+      "region": "Southwest Ohio - Dayton Metro",
+      "website": null
+    },
+    {
+      "id": 31,
+      "name": "Mid-Ohio ESC",
+      "location": "Mansfield, OH / Wooster, OH",
+      "counties_served": ["Richland", "Wayne", "Ashland"],
+      "estimated_districts": 18,
+      "estimated_educators": 2000,
+      "techcred_potential": 4000000,
+      "region": "North Central Ohio",
+      "website": "https://www.moesc.net"
+    },
+    {
+      "id": 32,
+      "name": "Midwest Regional ESC",
+      "location": "Bellefontaine, OH",
+      "counties_served": ["Logan", "Hardin"],
+      "estimated_districts": 10,
+      "estimated_educators": 700,
+      "techcred_potential": 1400000,
+      "region": "West Central Ohio",
+      "website": null
+    },
+    {
+      "id": 33,
+      "name": "Montgomery County ESC",
+      "location": "Dayton, OH",
+      "counties_served": ["Montgomery"],
+      "estimated_districts": 20,
+      "estimated_educators": 4000,
+      "techcred_potential": 8000000,
+      "region": "Southwest Ohio - Dayton Metro",
+      "website": null
+    },
+    {
+      "id": 34,
+      "name": "Muskingum Valley ESC",
+      "location": "Zanesville, OH",
+      "counties_served": ["Muskingum", "Coshocton"],
+      "estimated_districts": 12,
+      "estimated_educators": 1200,
+      "techcred_potential": 2400000,
+      "region": "East Central Ohio",
+      "website": null
+    },
+    {
+      "id": 35,
+      "name": "North Central Ohio ESC",
+      "location": "Multiple locations",
+      "counties_served": ["Seneca", "Wyandot", "Crawford"],
+      "estimated_districts": 15,
+      "estimated_educators": 1000,
+      "techcred_potential": 2000000,
+      "region": "North Central Ohio",
+      "website": null
+    },
+    {
+      "id": 36,
+      "name": "North Point ESC",
+      "location": "Sandusky, OH",
+      "counties_served": ["Erie", "Huron"],
+      "estimated_districts": 12,
+      "estimated_educators": 900,
+      "techcred_potential": 1800000,
+      "region": "North Central Ohio",
+      "website": null
+    },
+    {
+      "id": 37,
+      "name": "Northwest Ohio ESC",
+      "location": "Multiple locations",
+      "counties_served": ["Wood", "Henry", "Fulton"],
+      "estimated_districts": 15,
+      "estimated_educators": 1200,
+      "techcred_potential": 2400000,
+      "region": "Northwest Ohio",
+      "website": "https://www.nwoesc.org"
+    },
+    {
+      "id": 38,
+      "name": "Ohio Valley ESC",
+      "location": "Cambridge, OH",
+      "counties_served": ["Washington", "Monroe", "Morgan", "Perry", "Guernsey"],
+      "estimated_districts": 20,
+      "estimated_educators": 1000,
+      "techcred_potential": 2000000,
+      "region": "Southeast Ohio",
+      "website": "https://www.ovesc.org"
+    },
+    {
+      "id": 39,
+      "name": "Pickaway County ESC",
+      "location": "Circleville, OH",
+      "counties_served": ["Pickaway"],
+      "estimated_districts": 6,
+      "estimated_educators": 600,
+      "techcred_potential": 1200000,
+      "region": "Central Ohio",
+      "website": null
+    },
+    {
+      "id": 40,
+      "name": "Preble County ESC",
+      "location": "Eaton, OH",
+      "counties_served": ["Preble"],
+      "estimated_districts": 6,
+      "estimated_educators": 500,
+      "techcred_potential": 1000000,
+      "region": "Southwest Ohio",
+      "website": null
+    },
+    {
+      "id": 41,
+      "name": "Putnam County ESC",
+      "location": "Ottawa, OH",
+      "counties_served": ["Putnam"],
+      "estimated_districts": 5,
+      "estimated_educators": 400,
+      "techcred_potential": 800000,
+      "region": "Northwest Ohio",
+      "website": null
+    },
+    {
+      "id": 42,
+      "name": "Ross Pike ESC",
+      "location": "Chillicothe, OH",
+      "counties_served": ["Ross", "Pike"],
+      "estimated_districts": 10,
+      "estimated_educators": 1000,
+      "techcred_potential": 2000000,
+      "region": "South Central Ohio",
+      "website": null
+    },
+    {
+      "id": 43,
+      "name": "South Central Ohio ESC",
+      "location": "Portsmouth, OH",
+      "counties_served": ["Scioto", "Adams"],
+      "estimated_districts": 10,
+      "estimated_educators": 800,
+      "techcred_potential": 1600000,
+      "region": "South Central Ohio",
+      "website": null
+    },
+    {
+      "id": 44,
+      "name": "Southern Ohio ESC",
+      "location": "Multiple locations",
+      "counties_served": ["Highland", "Clinton", "Fayette"],
+      "estimated_districts": 12,
+      "estimated_educators": 800,
+      "techcred_potential": 1600000,
+      "region": "South Central Ohio",
+      "website": "https://www.southernohioesc.org"
+    },
+    {
+      "id": 45,
+      "name": "Stark County ESC",
+      "location": "Canton, OH",
+      "counties_served": ["Stark"],
+      "estimated_districts": 16,
+      "estimated_educators": 3000,
+      "techcred_potential": 6000000,
+      "region": "Northeast Ohio",
+      "website": null
+    },
+    {
+      "id": 46,
+      "name": "Summit ESC",
+      "location": "Cuyahoga Falls, OH",
+      "counties_served": ["Summit"],
+      "estimated_districts": 20,
+      "estimated_educators": 3500,
+      "techcred_potential": 7000000,
+      "region": "Northeast Ohio - Akron Metro",
+      "website": null
+    },
+    {
+      "id": 47,
+      "name": "Tri-County ESC",
+      "location": "Multiple locations",
+      "counties_served": ["Van Wert", "Paulding", "Defiance"],
+      "estimated_districts": 12,
+      "estimated_educators": 800,
+      "techcred_potential": 1600000,
+      "region": "Northwest Ohio",
+      "website": "https://www.youresc.k12.oh.us"
+    },
+    {
+      "id": 48,
+      "name": "Trumbull County ESC",
+      "location": "Niles, OH",
+      "counties_served": ["Trumbull"],
+      "estimated_districts": 12,
+      "estimated_educators": 1500,
+      "techcred_potential": 3000000,
+      "region": "Northeast Ohio",
+      "website": null
+    },
+    {
+      "id": 49,
+      "name": "Warren County ESC",
+      "location": "Lebanon, OH",
+      "counties_served": ["Warren"],
+      "estimated_districts": 11,
+      "estimated_educators": 2000,
+      "techcred_potential": 4000000,
+      "region": "Southwest Ohio - Cincinnati Metro",
+      "website": "https://warrencountyesc.com"
+    },
+    {
+      "id": 50,
+      "name": "Western Buckeye ESC",
+      "location": "Paulding, OH",
+      "counties_served": ["Williams", "Paulding"],
+      "estimated_districts": 8,
+      "estimated_educators": 600,
+      "techcred_potential": 1200000,
+      "region": "Northwest Ohio",
+      "website": null
+    },
+    {
+      "id": 51,
+      "name": "Wood County ESC",
+      "location": "Bowling Green, OH",
+      "counties_served": ["Wood"],
+      "estimated_districts": 8,
+      "estimated_educators": 1000,
+      "techcred_potential": 2000000,
+      "region": "Northwest Ohio",
+      "website": null
+    }
+  ],
+  "regional_analysis": {
+    "southwest_ohio_cincinnati_metro": {
+      "escs": ["Butler County ESC", "Clermont County ESC", "Hamilton County ESC", "Warren County ESC", "Brown County ESC", "Preble County ESC"],
+      "total_districts": 67,
+      "total_educators": 12000,
+      "techcred_potential": 24000000,
+      "priority_level": "High - Pilot Region"
+    },
+    "northeast_ohio_cleveland_metro": {
+      "escs": ["ESC of Northeast Ohio", "ESC of Lorain County", "ESC of Medina County", "Summit ESC", "Stark County ESC"],
+      "total_districts": 111,
+      "total_educators": 18800,
+      "techcred_potential": 37600000,
+      "priority_level": "High - Major Metro"
+    },
+    "central_ohio_columbus_metro": {
+      "escs": ["ESC of Central Ohio", "Fairfield County ESC", "Licking Regional ESC", "Pickaway County ESC", "Knox ESC"],
+      "total_districts": 71,
+      "total_educators": 12200,
+      "techcred_potential": 24400000,
+      "priority_level": "High - State Capital"
+    },
+    "southwest_ohio_dayton_metro": {
+      "escs": ["Montgomery County ESC", "Greene County ESC", "Miami County ESC", "Clark County ESC"],
+      "total_districts": 44,
+      "total_educators": 7400,
+      "techcred_potential": 14800000,
+      "priority_level": "Medium - Secondary Metro"
+    },
+    "northwest_ohio_toledo_metro": {
+      "escs": ["ESC of Lake Erie West", "Northwest Ohio ESC", "Wood County ESC", "Hancock County ESC"],
+      "total_districts": 46,
+      "total_educators": 6000,
+      "techcred_potential": 12000000,
+      "priority_level": "Medium - Regional Hub"
+    },
+    "rural_regions": {
+      "escs": ["All remaining ESCs"],
+      "total_districts": 261,
+      "total_educators": 38600,
+      "techcred_potential": 77200000,
+      "priority_level": "Low-Medium - Rural Implementation"
+    }
+  },
+  "implementation_priorities": {
+    "tier_1_pilot": {
+      "regions": ["Southwest Ohio Cincinnati Metro"],
+      "escs": 6,
+      "districts": 67,
+      "educators": 12000,
+      "timeline": "Years 1-2",
+      "investment_priority": "Immediate"
+    },
+    "tier_2_expansion": {
+      "regions": ["Northeast Ohio Cleveland Metro", "Central Ohio Columbus Metro"],
+      "escs": 10,
+      "districts": 182,
+      "educators": 31000,
+      "timeline": "Years 2-4",
+      "investment_priority": "High"
+    },
+    "tier_3_scaling": {
+      "regions": ["Southwest Ohio Dayton Metro", "Northwest Ohio Toledo Metro"],
+      "escs": 8,
+      "districts": 90,
+      "educators": 13400,
+      "timeline": "Years 3-5",
+      "investment_priority": "Medium"
+    },
+    "tier_4_statewide": {
+      "regions": ["Rural and Remaining Regions"],
+      "escs": 27,
+      "districts": 261,
+      "educators": 38600,
+      "timeline": "Years 4-7",
+      "investment_priority": "Long-term"
+    }
+  },
+  "market_opportunity": {
+    "total_addressable_market": {
+      "escs": 51,
+      "districts": 600,
+      "educators": 95000,
+      "techcred_funding": 190000000
+    },
+    "serviceable_addressable_market": {
+      "escs": 35,
+      "districts": 400,
+      "educators": 70000,
+      "techcred_funding": 140000000
+    },
+    "serviceable_obtainable_market": {
+      "escs": 20,
+      "districts": 200,
+      "educators": 35000,
+      "techcred_funding": 70000000
+    }
+  }
+}

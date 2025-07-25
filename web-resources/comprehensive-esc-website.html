@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohio AI Education Initiative - Comprehensive Market Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .header-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .header-stat {
+            text-align: center;
+        }
+        
+        .header-stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .header-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow-x: auto;
+        }
+        
+        .nav-tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        
+        .nav-tab.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .nav-tab:first-child {
+            border-radius: 12px 0 0 12px;
+        }
+        
+        .nav-tab:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .section-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .chart-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .calculator-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .input-group input, .input-group select {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .calculator-results {
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .result-value {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .timeline-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-left: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .timeline-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .key-insights {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .insight-card {
+            background: rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .insight-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .data-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                border-radius: 0 !important;
+            }
+            
+            .calculator-inputs {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Ohio AI Education Initiative</h1>
+                <p class="subtitle">Comprehensive Market Analysis & Implementation Strategy</p>
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <span class="header-stat-number">51</span>
+                        <span class="header-stat-label">Educational Service Centers</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">1,201</span>
+                        <span class="header-stat-label">Potential Employers</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">95K+</span>
+                        <span class="header-stat-label">Educators Statewide</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">$216M+</span>
+                        <span class="header-stat-label">Annual TechCred Potential</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">Market Overview</button>
+            <button class="nav-tab" onclick="showTab('funding')">TechCred Analysis</button>
+            <button class="nav-tab" onclick="showTab('implementation')">Implementation Plan</button>
+            <button class="nav-tab" onclick="showTab('calculator')">ROI Calculator</button>
+            <button class="nav-tab" onclick="showTab('curriculum')">Curriculum Design</button>
+            <button class="nav-tab" onclick="showTab('insights')">Key Insights</button>
+        </div>
+
+        <!-- Market Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <div class="section-card">
+                <h2 class="section-title">Statewide Market Analysis</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">600+</div>
+                        <div class="stat-label">School Districts</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">51</div>
+                        <div class="stat-label">ESCs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">450</div>
+                        <div class="stat-label">Trainers Needed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5 Years</div>
+                        <div class="stat-label">Implementation Timeline</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="chart-title">Regional Distribution of Educators</h3>
+                    <canvas id="regionalChart" width="400" height="200"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="chart-title">ESC Size Distribution</h3>
+                    <canvas id="escSizeChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">Cincinnati Metro Opportunity</h2>
+                <p>The Cincinnati metropolitan area represents our pilot region with immediate implementation potential:</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ESC/District</th>
+                            <th>Educators</th>
+                            <th>TechCred Potential</th>
+                            <th>Implementation Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Warren County ESC</td>
+                            <td>2,000</td>
+                            <td>$4,000,000</td>
+                            <td>Year 1 (Pilot)</td>
+                        </tr>
+                        <tr>
+                            <td>Hamilton County ESC</td>
+                            <td>5,500</td>
+                            <td>$11,000,000</td>
+                            <td>Year 1-2</td>
+                        </tr>
+                        <tr>
+                            <td>Butler County ESC</td>
+                            <td>2,500</td>
+                            <td>$5,000,000</td>
+                            <td>Year 1-2</td>
+                        </tr>
+                        <tr>
+                            <td>Clermont County ESC</td>
+                            <td>1,500</td>
+                            <td>$3,000,000</td>
+                            <td>Year 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TechCred Analysis Tab -->
+        <div id="funding" class="tab-content">
+            <div class="section-card">
+                <h2 class="section-title">TechCred Funding Analysis</h2>
+                <p>Ohio's TechCred Program provides unprecedented funding opportunities for AI education professional development:</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">$2,000</div>
+                        <div class="stat-label">Per Educator Reimbursement</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$180K</div>
+                        <div class="stat-label">Annual Cap Per Employer</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1,201</div>
+                        <div class="stat-label">Eligible Employers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">90</div>
+                        <div class="stat-label">Max Participants Per Employer</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="chart-title">Employer Categories & Funding Potential</h3>
+                    <canvas id="employerChart" width="400" height="200"></canvas>
+                </div>
+
+                <div class="section-card" style="background: #e3f2fd; margin-top: 30px;">
+                    <h3>Key Finding: Multiple Employer Strategy</h3>
+                    <p>Each employer type can apply separately, dramatically increasing funding capacity:</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li><strong>School Districts:</strong> 600 × $180,000 = $108,000,000 annually</li>
+                        <li><strong>ESCs:</strong> 51 × $180,000 = $9,180,000 annually</li>
+                        <li><strong>Charter Schools:</strong> 300 × $180,000 = $54,000,000 annually</li>
+                        <li><strong>Higher Education:</strong> 200 × $180,000 = $36,000,000 annually</li>
+                        <li><strong>JVSDs:</strong> 50 × $180,000 = $9,000,000 annually</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-weight: bold; color: #1976d2;">Total Annual Potential: $216,180,000</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Plan Tab -->
+        <div id="implementation" class="tab-content">
+            <div class="timeline-container">
+                <h2 class="section-title">5-Year Implementation Timeline</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Year 1: Foundation & Pilot</div>
+                        <div class="timeline-meta">2024-2025 | Warren County ESC + Cincinnati Metro</div>
+                        <p>Launch pilot program with Warren County ESC. Expand to Butler and Hamilton County ESCs. Train initial 125 trainers. Serve 15,000 educators. Generate $30M in TechCred revenue.</p>
+                        <div style="margin-top: 15px;">
+                            <strong>Key Deliverables:</strong>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>TechCred provider approval</li>
+                                <li>Curriculum accreditation</li>
+                                <li>Train-the-trainer program launch</li>
+                                <li>Quality assurance systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Year 2: Regional Expansion</div>
+                        <div class="timeline-meta">2025-2026 | Columbus & Cleveland Metros</div>
+                        <p>Scale to Ohio's largest metropolitan areas. Train 100 additional trainers. Serve 20,000 educators. Generate $40M in TechCred revenue. Establish regional training centers.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Year 3: Market Penetration</div>
+                        <div class="timeline-meta">2026-2027 | Dayton, Toledo & Major Suburbs</div>
+                        <p>Expand to secondary metropolitan markets. Train 100 additional trainers. Serve 20,000 educators. Generate $40M in TechCred revenue. Achieve 50% statewide coverage.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Year 4: Rural Penetration</div>
+                        <div class="timeline-meta">2027-2028 | Rural & Small Town Ohio</div>
+                        <p>Begin rural Ohio rollout. Train 75 additional trainers. Serve 20,000 educators. Generate $40M in TechCred revenue. Focus on geographic coverage and accessibility.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Year 5: Statewide Completion</div>
+                        <div class="timeline-meta">2028-2029 | Final Coverage & Sustainability</div>
+                        <p>Complete statewide implementation. Train final 50 trainers. Serve remaining 20,000 educators. Generate $40M in TechCred revenue. Establish sustainable ongoing model.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">Trainer Development Pipeline</h3>
+                <canvas id="trainerChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- ROI Calculator Tab -->
+        <div id="calculator" class="tab-content">
+            <div class="calculator-section">
+                <h2 class="section-title" style="color: white;">TechCred ROI Calculator</h2>
+                <p style="opacity: 0.9;">Calculate potential revenue and impact for your district or ESC:</p>
+
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="educatorCount">Number of Educators</label>
+                        <input type="number" id="educatorCount" value="150" min="1" max="10000">
+                    </div>
+                    <div class="input-group">
+                        <label for="organizationType">Organization Type</label>
+                        <select id="organizationType">
+                            <option value="district">School District</option>
+                            <option value="esc">Educational Service Center</option>
+                            <option value="charter">Charter School</option>
+                            <option value="higher-ed">Higher Education</option>
+                            <option value="jvsd">Joint Vocational School</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="implementationYears">Implementation Timeline (Years)</label>
+                        <select id="implementationYears">
+                            <option value="1">1 Year</option>
+                            <option value="2" selected>2 Years</option>
+                            <option value="3">3 Years</option>
+                            <option value="5">5 Years</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="marketCapture">Market Capture Rate</label>
+                        <select id="marketCapture">
+                            <option value="0.25">25% (Conservative)</option>
+                            <option value="0.5" selected>50% (Moderate)</option>
+                            <option value="0.75">75% (Aggressive)</option>
+                            <option value="1">100% (Maximum)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calculator-results" id="calculatorResults">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>Economic Impact Analysis</h3>
+                <div class="chart-container">
+                    <canvas id="economicChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Curriculum Design Tab -->
+        <div id="curriculum" class="tab-content">
+            <div class="section-card">
+                <h2 class="section-title">AI Leadership Professional Development Curriculum</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">Core Training Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">35</div>
+                        <div class="stat-label">Train-the-Trainer Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">30:1</div>
+                        <div class="stat-label">Trainer-Participant Ratio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Core Modules</div>
+                    </div>
+                </div>
+
+                <div class="section-card" style="background: #f8f9fa;">
+                    <h3>Curriculum Overview</h3>
+                    <p>Our comprehensive AI professional development program is designed for educational leaders and administrators:</p>
+
+                    <table class="data-table" style="margin-top: 20px;">
+                        <thead>
+                            <tr>
+                                <th>Module</th>
+                                <th>Topic</th>
+                                <th>Hours</th>
+                                <th>Key Outcomes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>AI Foundations & Educational Landscape</td>
+                                <td>2</td>
+                                <td>AI terminology, current tools, opportunities</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Data Privacy, FERPA & Responsible Use</td>
+                                <td>2</td>
+                                <td>Legal compliance, data governance, policies</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Prompt Engineering & Communication</td>
+                                <td>2</td>
+                                <td>Effective AI interaction, stakeholder messaging</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Administrative Efficiency</td>
+                                <td>2</td>
+                                <td>Workflow automation, time savings, ROI</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Special Education & Student Services</td>
+                                <td>2</td>
+                                <td>Accessibility tools, IEP support, inclusion</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Leading Change & Building AI Ecosystem</td>
+                                <td>2</td>
+                                <td>Change management, system integration</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Equity, Bias & Community Engagement</td>
+                                <td>2</td>
+                                <td>Ethical AI, bias mitigation, transparency</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Teaching & Learning Enhancement</td>
+                                <td>2</td>
+                                <td>Curriculum design, teacher support, assessment</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Future-Ready Leadership & Capstone</td>
+                                <td>4</td>
+                                <td>Strategic planning, ongoing learning, implementation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section-card" style="background: #e8f5e8;">
+                    <h3>Certification Pathways</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                        <div>
+                            <h4>Educator AI Literacy Certificate (20 hours)</h4>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>TechCred eligible ($2,000 reimbursement)</li>
+                                <li>Ohio AI Strategy aligned</li>
+                                <li>FERPA/Senate Bill 29 compliant</li>
+                                <li>Digital badge portfolio</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>AI Trainer Certification (35 hours)</h4>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Includes 20-hour core curriculum</li>
+                                <li>15-hour train-the-trainer module</li>
+                                <li>Adult learning principles</li>
+                                <li>Facilitation practicum</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insights Tab -->
+        <div id="insights" class="tab-content">
+            <div class="key-insights">
+                <h2 class="section-title" style="color: white;">Strategic Insights & Recommendations</h2>
+                <p style="opacity: 0.9;">Critical findings from our comprehensive analysis of Ohio's AI education market:</p>
+
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">Market Size Revelation</div>
+                        <p>Our research revealed 1,201 eligible employers (not just 651), increasing annual funding potential from $117M to $216M+. This represents a 85% increase in market opportunity.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Trainer Economics</div>
+                        <p>450 trainers generating $5M+ annually in local income creates powerful economic incentives for participation and retention. Each trainer earns $6,000+ annually.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Geographic Strategy</div>
+                        <p>Cincinnati Metro provides ideal pilot region with 4 ESCs, 53 districts, and $24M funding potential. Success here enables statewide scaling.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Implementation Speed</div>
+                        <p>With full employer participation, entire state could be trained in under 1 year from funding perspective. Practical constraints suggest 3-5 year optimal timeline.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Competitive Moats</div>
+                        <p>First-mover advantage with ESC partnerships, state strategy alignment, and local trainer networks creates sustainable competitive advantages.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-title">Scalability Model</div>
+                        <p>ESC network provides built-in distribution infrastructure. 51 ESCs can coordinate 600+ districts more efficiently than direct district relationships.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">Critical Success Factors</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px;">
+                    <div>
+                        <h3>Immediate Priorities (90 days)</h3>
+                        <ul style="padding-left: 20px; line-height: 2;">
+                            <li>Secure TechCred provider status</li>
+                            <li>Finalize Warren County ESC pilot</li>
+                            <li>Develop trainer recruitment pipeline</li>
+                            <li>Create automated application systems</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Long-term Strategies (2-5 years)</h3>
+                        <ul style="padding-left: 20px; line-height: 2;">
+                            <li>Build statewide trainer network (450+ trainers)</li>
+                            <li>Establish regional training centers</li>
+                            <li>Develop advanced certification pathways</li>
+                            <li>Expand to other states with similar models</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">Financial Projections Summary</h2>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>New Trainers</th>
+                            <th>Educators Served</th>
+                            <th>TechCred Revenue</th>
+                            <th>Net Profit</th>
+                            <th>Cumulative Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Year 1</td>
+                            <td>125</td>
+                            <td>15,000</td>
+                            <td>$30,000,000</td>
+                            <td>$25,500,000</td>
+                            <td>15,000 educators</td>
+                        </tr>
+                        <tr>
+                            <td>Year 2</td>
+                            <td>100</td>
+                            <td>20,000</td>
+                            <td>$40,000,000</td>
+                            <td>$34,000,000</td>
+                            <td>35,000 educators</td>
+                        </tr>
+                        <tr>
+                            <td>Year 3</td>
+                            <td>100</td>
+                            <td>20,000</td>
+                            <td>$40,000,000</td>
+                            <td>$34,000,000</td>
+                            <td>55,000 educators</td>
+                        </tr>
+                        <tr>
+                            <td>Year 4</td>
+                            <td>75</td>
+                            <td>20,000</td>
+                            <td>$40,000,000</td>
+                            <td>$34,000,000</td>
+                            <td>75,000 educators</td>
+                        </tr>
+                        <tr>
+                            <td>Year 5</td>
+                            <td>50</td>
+                            <td>20,000</td>
+                            <td>$40,000,000</td>
+                            <td>$34,000,000</td>
+                            <td>95,000 educators</td>
+                        </tr>
+                        <tr style="background: #e3f2fd; font-weight: bold;">
+                            <td>Total</td>
+                            <td>450</td>
+                            <td>95,000</td>
+                            <td>$190,000,000</td>
+                            <td>$161,500,000</td>
+                            <td>100% Coverage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" class="btn btn-primary">Download Full Analysis Report</a>
+                <a href="#" class="btn btn-secondary">Schedule Strategy Consultation</a>
+                <a href="#" class="btn btn-secondary">Access Implementation Toolkit</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked nav tab
+            event.target.classList.add('active');
+        }
+
+        // Initialize charts when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            initializeCalculator();
+        });
+
+        function initializeCharts() {
+            // Regional Distribution Chart
+            const regionalCtx = document.getElementById('regionalChart').getContext('2d');
+            new Chart(regionalCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cincinnati Metro', 'Cleveland Metro', 'Columbus Metro', 'Dayton Metro', 'Toledo Metro', 'Rural Regions'],
+                    datasets: [{
+                        data: [12000, 18800, 12200, 7400, 6000, 38600],
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // ESC Size Distribution
+            const escSizeCtx = document.getElementById('escSizeChart').getContext('2d');
+            new Chart(escSizeCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Large ESCs (2000+ educators)', 'Medium ESCs (1000-2000)', 'Small ESCs (<1000)'],
+                    datasets: [{
+                        label: 'Number of ESCs',
+                        data: [8, 15, 28],
+                        backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Employer Categories Chart
+            const employerCtx = document.getElementById('employerChart').getContext('2d');
+            new Chart(employerCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['School Districts', 'Charter Schools', 'Higher Education', 'ESCs', 'JVSDs'],
+                    datasets: [{
+                        label: 'Annual Funding Potential (Millions)',
+                        data: [108, 54, 36, 9.18, 9],
+                        backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value + 'M';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Trainer Development Pipeline
+            const trainerCtx = document.getElementById('trainerChart').getContext('2d');
+            new Chart(trainerCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+                    datasets: [{
+                        label: 'New Trainers',
+                        data: [125, 100, 100, 75, 50],
+                        borderColor: '#36A2EB',
+                        backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                        fill: true
+                    }, {
+                        label: 'Cumulative Trainers',
+                        data: [125, 225, 325, 400, 450],
+                        borderColor: '#FF6384',
+                        backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Economic Impact Chart
+            const economicCtx = document.getElementById('economicChart').getContext('2d');
+            new Chart(economicCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['TechCred Revenue', 'Net Profit', 'Trainer Income', 'Economic Multiplier'],
+                    datasets: [{
+                        label: 'Annual Impact (Millions)',
+                        data: [40, 34, 1, 50],
+                        backgroundColor: ['#36A2EB', '#4BC0C0', '#FFCE56', '#9966FF']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value + 'M';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initializeCalculator() {
+            // Add event listeners to calculator inputs
+            document.getElementById('educatorCount').addEventListener('input', updateCalculator);
+            document.getElementById('organizationType').addEventListener('change', updateCalculator);
+            document.getElementById('implementationYears').addEventListener('change', updateCalculator);
+            document.getElementById('marketCapture').addEventListener('change', updateCalculator);
+
+            // Initial calculation
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const educatorCount = parseInt(document.getElementById('educatorCount').value) || 0;
+            const organizationType = document.getElementById('organizationType').value;
+            const implementationYears = parseInt(document.getElementById('implementationYears').value);
+            const marketCapture = parseFloat(document.getElementById('marketCapture').value);
+
+            // Calculate annual capacity (90 educators max per employer per year)
+            const annualCapacity = Math.min(90, Math.ceil(educatorCount / implementationYears));
+            const totalYearsNeeded = Math.ceil(educatorCount / 90);
+            const actualYears = Math.max(implementationYears, totalYearsNeeded);
+
+            // Calculate funding
+            const techCredPerEducator = 2000;
+            const totalTechCredFunding = educatorCount * techCredPerEducator * marketCapture;
+            const annualFunding = totalTechCredFunding / actualYears;
+
+            // Calculate trainers needed
+            const trainersNeeded = Math.ceil(educatorCount / 30); // 30:1 ratio
+            const trainerDevelopmentCost = trainersNeeded * 2500; // $2,500 per trainer
+
+            // Calculate economics
+            const trainerCompensation = trainersNeeded * 6000; // $6,000 per trainer annually
+            const operationalCosts = totalTechCredFunding * 0.15; // 15% operational overhead
+            const netRevenue = totalTechCredFunding - trainerDevelopmentCost - (trainerCompensation * actualYears) - operationalCosts;
+
+            // Update results display
+            const resultsHTML = `
+                <div class="result-item">
+                    <span>Total Educators to Train:</span>
+                    <span class="result-value">${educatorCount.toLocaleString()}</span>
+                </div>
+                <div class="result-item">
+                    <span>Implementation Timeline:</span>
+                    <span class="result-value">${actualYears} years</span>
+                </div>
+                <div class="result-item">
+                    <span>Trainers Required:</span>
+                    <span class="result-value">${trainersNeeded}</span>
+                </div>
+                <div class="result-item">
+                    <span>Total TechCred Funding:</span>
+                    <span class="result-value">$${totalTechCredFunding.toLocaleString()}</span>
+                </div>
+                <div class="result-item">
+                    <span>Annual Funding Average:</span>
+                    <span class="result-value">$${Math.round(annualFunding).toLocaleString()}</span>
+                </div>
+                <div class="result-item">
+                    <span>Trainer Development Cost:</span>
+                    <span class="result-value">$${trainerDevelopmentCost.toLocaleString()}</span>
+                </div>
+                <div class="result-item">
+                    <span>Annual Trainer Compensation:</span>
+                    <span class="result-value">$${trainerCompensation.toLocaleString()}</span>
+                </div>
+                <div class="result-item" style="border-top: 2px solid rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px;">
+                    <span><strong>Net Revenue (${actualYears} years):</strong></span>
+                    <span class="result-value" style="color: #4CAF50;">$${Math.round(netRevenue).toLocaleString()}</span>
+                </div>
+                <div class="result-item">
+                    <span><strong>ROI:</strong></span>
+                    <span class="result-value">${Math.round((netRevenue / (totalTechCredFunding - netRevenue)) * 100)}%</span>
+                </div>
+            `;
+
+            document.getElementById('calculatorResults').innerHTML = resultsHTML;
+        }
+    </script>
+</body>
+</html>
