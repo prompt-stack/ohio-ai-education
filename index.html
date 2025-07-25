@@ -154,8 +154,15 @@
             }
             
             .chart-container {
-                height: 250px;
+                height: auto;
+                min-height: 250px;
                 margin-bottom: 20px;
+                padding: 15px;
+            }
+            
+            .chart-container canvas {
+                width: 100% !important;
+                max-height: 250px !important;
             }
             
             table {
@@ -201,7 +208,14 @@
             }
             
             .chart-container {
-                height: 200px;
+                height: auto;
+                min-height: 200px;
+                padding: 10px;
+            }
+            
+            .chart-container canvas {
+                width: 100% !important;
+                max-height: 200px !important;
             }
             
             table {
@@ -310,6 +324,13 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chart-container canvas {
+            max-width: 100% !important;
+            height: auto !important;
         }
         
         .chart-title {
@@ -1116,6 +1137,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             position: 'bottom'
@@ -1138,6 +1160,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: true
@@ -1160,6 +1183,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: true,
@@ -1195,6 +1219,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: true
@@ -1217,6 +1242,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: true,
