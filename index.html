@@ -97,6 +97,122 @@
             overflow-x: auto;
         }
         
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 40px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .header-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .header-stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+            
+            .nav-tab {
+                border-radius: 0;
+                border-bottom: 1px solid #eee;
+                min-width: auto;
+                flex: none;
+            }
+            
+            .nav-tab:first-child {
+                border-radius: 12px 12px 0 0;
+            }
+            
+            .nav-tab:last-child {
+                border-radius: 0 0 12px 12px;
+                border-bottom: none;
+            }
+            
+            .section {
+                margin-bottom: 30px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .chart-container {
+                height: 250px;
+                margin-bottom: 20px;
+            }
+            
+            table {
+                font-size: 0.9rem;
+                overflow-x: auto;
+                display: block;
+                white-space: nowrap;
+            }
+            
+            th, td {
+                padding: 8px 4px;
+            }
+            
+            .key-insights ul {
+                padding-left: 20px;
+            }
+            
+            .key-insights li {
+                margin-bottom: 8px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .header-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 5px;
+            }
+            
+            .chart-container {
+                height: 200px;
+            }
+            
+            table {
+                font-size: 0.8rem;
+            }
+            
+            th, td {
+                padding: 6px 2px;
+            }
+        }
+        
         .nav-tab {
             flex: 1;
             padding: 20px;
